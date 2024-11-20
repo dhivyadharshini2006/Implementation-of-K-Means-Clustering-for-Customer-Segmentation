@@ -8,19 +8,19 @@ To write a program to implement the K Means Clustering for Customer Segmentation
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-1.start the program.
-
-2.Import libraries.
-
-3.Read the given CSV file.
-
-4.Import KMeans and use for loop to cluster the data.
-
-5.Predict the cluster and plot data graphs.
-
-6.Print the outputs and end the program.
-
-7.End the program.
+1. Import the libraries `pandas`, `matplotlib.pyplot`, and `KMeans` from `sklearn.cluster`.  
+2. Load the dataset `Mall_Customers.csv` using `pd.read_csv()` and preview the data using `.head()`.  
+3. Use `.info()` to understand the structure and data types of the dataset.  
+4. Check for missing values using `.isnull().sum()` to ensure data completeness.  
+5. Initialize an empty list `wcss` to store the within-cluster sum of squares (WCSS).  
+6. Use a `for` loop to iterate over numbers 1 to 10, creating a `KMeans` model with `n_clusters=i` and the `k-means++` initialization method.  
+7. Fit the model to the dataset columns `Annual Income (k$)` and `Spending Score (1-100)` using `.iloc[:, 3:]`. Append the inertia (WCSS) to the `wcss` list.  
+8. Plot WCSS values against the number of clusters using `plt.plot()`, labeling the axes and the plot title as "Elbow Method".  
+9. Create a new `KMeans` model with `n_clusters=5` and fit it to the same dataset columns.  
+10. Predict cluster labels for the dataset and assign them to a new column `cluster` in the original dataset.  
+11. Split the dataset into subsets `df0`, `df1`, `df2`, `df3`, and `df4` based on the `cluster` column values.  
+12. Plot scatter plots for each cluster using `plt.scatter()` with `Annual Income (k$)` on the x-axis and `Spending Score (1-100)` on the y-axis. Use distinct colors and labels for each cluster.  
+13. Add a legend and title "Customer Segments" to the plot and display it.
 
 ## Program:
 ```
